@@ -1,0 +1,60 @@
+{
+   "organizations-api":{
+      "basicUser":"${secrets.getValue('org.organizations-api-username-awsstg')}",
+      "basicPassword":"${secrets.getValue('org.organizations-api-password-awsstg')}",
+      "url":"https://organization-api.stage.percipio.com",
+      "token":"${secrets.getValue('org.organizations-api-token-awsstg')}"
+  },
+  "settings-service":{
+      "basicUser":"${secrets.getValue('org.settings-service-username-awsstg')}",
+      "basicPassword":"${secrets.getValue('org.settings-service-password-awsstg')}",
+      "url":"https://settings.stage.percipio.com",
+      "token":"${secrets.getValue('org.settings-service-token-awsstg')}"
+  },
+  "assignment-service":{
+      "basicUser":"${secrets.getValue('org.assignment-service-username-awsstg')}",
+      "basicPassword":"${secrets.getValue('org.assignment-service-password-awsstg')}",
+      "url": "https://assignment.stage.percipio.com",
+      "token":"${secrets.getValue('org.assignment-service-token-awsstg')}"
+  },
+  "site-shutdown-v2":{
+      "basicUser":"${secrets.getValue('org.site-shutdown-v2-username-awsstg')}",
+      "basicPassword":"${secrets.getValue('org.site-shutdown-v2-password-awsstg')}",
+      "url": "https://site-shutdown-v2.stage.percipio.com",
+      "token":"${secrets.getValue('org.site-shutdown-v2-token-awsstg')}"
+  },
+  "selfRegistration":{
+      "basicUser":"${secrets.getValue('org.self-registration-username-awsstg')}",
+      "basicPassword":"${secrets.getValue('org.organizations-api-password-awsstg')}",
+      "url":"https://self-registration.stage.percipio.com",
+      "token":"${secrets.getValue('org.self-registration-token-awsstg')}"
+  },
+
+"provisioning":{
+      "basicUser":"${secrets.getValue('org.provisioning-username-awsstg')}",
+      "basicPassword":"${secrets.getValue('org.provisioning-password-awsstg')}",
+      "url":"https://use1-stage-provisioning.stage.percipio.com",
+      "token":"${secrets.getValue('org.provisioning-auth-token-awsstg')}",
+      "jwt":"${secrets.getValue('org.provisioning-jwt-awsstg')}"
+  },
+
+  "ucm2bff":{
+      "basicUser":"${secrets.getValue('org.ucm2bff-service-username-awsstg')}",
+      "basicPassword":"${secrets.getValue('org.ucm2bff-service-password-awsstg')}",
+      "url":"https://ucm2bff.stage.percipio.com",
+      "token":"${secrets.getValue('org.ucm2bff-service-auth-token-awsstg')}",
+      "jwt":"${secrets.getValue('org.ucm2bff-service-jwt-awsstg')}"
+  },
+    "tailored-content": {
+        "basicUser": "${secrets.getValue("tailored-content-username-awsstg")}",
+        "basicPassword": "${secrets.getValue("tailored-content-password-awsstg")}",
+        "url": "https://use1-stage-tailored-content.stage.percipio.com",
+        "token": "${secrets.getValue("tailored-content-token-awsstg")}"
+    },
+    "equivalency-activity": {
+        "basicUser": "${secrets.getValue('equivalency-activity-username-awsstg')}",
+        "basicPassword": "${secrets.getValue('equivalency-activity-password-awsstg')}",
+        "url": "https://use1-stage-equivalency-activity.stage.percipio.com",
+        "token": "${secrets.getValue('equivalency-activity-token-awsstg')}"
+    }
+}

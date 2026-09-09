@@ -1,0 +1,140 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: selfRegistration.spec.ts >> SelfRegistration — uts-audit >> DeleteEntries — 200  happy path
+- Location: tests/tests-api/selfRegistration.spec.ts:853:7
+
+# Error details
+
+```
+Error: apiRequestContext.post: socket hang up
+Call log:
+  - → POST https://self-registration.develop.squads-dev.com/api/audit-mesgs/ack/id/test-auditId/seq/test-seq
+    - user-agent: Playwright/1.60.0 (arm64; macOS 26.5) node/20.15
+    - accept: */*
+    - accept-encoding: gzip,deflate,br
+    - Authorization: Basic cGluZzpQb25nMzIxIQ==
+    - Content-Type: application/json
+    - content-length: 2
+
+```
+
+# Test source
+
+```ts
+  418 |     const res = await this.request.get(url, {
+  419 |       headers: this.headers,
+  420 |       params: queryParams,
+  421 |     });
+  422 |     const status = res.status();
+  423 |     if (status >= 200 && status < 300) {
+  424 |       const json = await res.json().catch(() => null);
+  425 |       if (json !== null) {
+  426 |         const parsed = RemoteHealthResponseSchema.safeParse(json);
+  427 |         if (!parsed.success) {
+  428 |           console.warn(`[SelfRegistrationClient] Contract mismatch on GET /api/health/v1/remote:`, parsed.error.format());
+  429 |         }
+  430 |       }
+  431 |     }
+  432 |     const body_ = await res.json().catch(() => null);
+  433 |     return { status, body: body_ };
+  434 |   }
+  435 |   /** LocalAndRemoteHealth */
+  436 |   async localAndRemoteHealth(queryParams?: Record<string, string>): Promise<{ status: number; body: unknown }> {
+  437 |     const url = selfRegistrationUrls.getApiHealthV1AllUrl(this.serviceConfig);
+  438 |     const res = await this.request.get(url, {
+  439 |       headers: this.headers,
+  440 |       params: queryParams,
+  441 |     });
+  442 |     const status = res.status();
+  443 |     if (status >= 200 && status < 300) {
+  444 |       const json = await res.json().catch(() => null);
+  445 |       if (json !== null) {
+  446 |         const parsed = LocalAndRemoteHealthResponseSchema.safeParse(json);
+  447 |         if (!parsed.success) {
+  448 |           console.warn(`[SelfRegistrationClient] Contract mismatch on GET /api/health/v1/all:`, parsed.error.format());
+  449 |         }
+  450 |       }
+  451 |     }
+  452 |     const body_ = await res.json().catch(() => null);
+  453 |     return { status, body: body_ };
+  454 |   }
+  455 |   /** BasicAuthHealth */
+  456 |   async basicAuthHealth(queryParams?: Record<string, string>): Promise<{ status: number; body: unknown }> {
+  457 |     const url = selfRegistrationUrls.getApiHealthV1AuthBasicUrl(this.serviceConfig);
+  458 |     const res = await this.request.get(url, {
+  459 |       headers: this.headers,
+  460 |       params: queryParams,
+  461 |     });
+  462 |     const status = res.status();
+  463 |     if (status >= 200 && status < 300) {
+  464 |       const json = await res.json().catch(() => null);
+  465 |       if (json !== null) {
+  466 |         const parsed = BasicAuthHealthResponseSchema.safeParse(json);
+  467 |         if (!parsed.success) {
+  468 |           console.warn(`[SelfRegistrationClient] Contract mismatch on GET /api/health/v1/auth/basic:`, parsed.error.format());
+  469 |         }
+  470 |       }
+  471 |     }
+  472 |     const body_ = await res.json().catch(() => null);
+  473 |     return { status, body: body_ };
+  474 |   }
+  475 |   /** GetBuildVersion */
+  476 |   async getBuildVersion(queryParams?: Record<string, string>): Promise<{ status: number; body: unknown }> {
+  477 |     const url = selfRegistrationUrls.getApiPublicBuildVersionUrl(this.serviceConfig);
+  478 |     const res = await this.request.get(url, {
+  479 |       headers: this.headers,
+  480 |       params: queryParams,
+  481 |     });
+  482 |     const status = res.status();
+  483 |     if (status >= 200 && status < 300) {
+  484 |       const json = await res.json().catch(() => null);
+  485 |       if (json !== null) {
+  486 |         const parsed = GetBuildVersionResponseSchema.safeParse(json);
+  487 |         if (!parsed.success) {
+  488 |           console.warn(`[SelfRegistrationClient] Contract mismatch on GET /api/public/build_version:`, parsed.error.format());
+  489 |         }
+  490 |       }
+  491 |     }
+  492 |     const body_ = await res.json().catch(() => null);
+  493 |     return { status, body: body_ };
+  494 |   }
+  495 |   /** FetchEntries */
+  496 |   async fetchEntries(queryParams?: Record<string, string>): Promise<{ status: number; body: unknown }> {
+  497 |     const url = selfRegistrationUrls.getApiAuditMesgsUrl(this.serviceConfig);
+  498 |     const res = await this.request.get(url, {
+  499 |       headers: this.headers,
+  500 |       params: queryParams,
+  501 |     });
+  502 |     const status = res.status();
+  503 |     if (status >= 200 && status < 300) {
+  504 |       const json = await res.json().catch(() => null);
+  505 |       if (json !== null) {
+  506 |         const parsed = FetchEntriesResponseSchema.safeParse(json);
+  507 |         if (!parsed.success) {
+  508 |           console.warn(`[SelfRegistrationClient] Contract mismatch on GET /api/audit-mesgs:`, parsed.error.format());
+  509 |         }
+  510 |       }
+  511 |     }
+  512 |     const body_ = await res.json().catch(() => null);
+  513 |     return { status, body: body_ };
+  514 |   }
+  515 |   /** DeleteEntries */
+  516 |   async deleteEntries(auditId: string, seq: string, body: Record<string, unknown> = {}, queryParams?: Record<string, string>): Promise<{ status: number; body: unknown }> {
+  517 |     const url = selfRegistrationUrls.postApiAuditMesgsAckIdByauditIdSeqByseqUrl(auditId, seq, this.serviceConfig);
+> 518 |     const res = await this.request.post(url, {
+      |                                    ^ Error: apiRequestContext.post: socket hang up
+  519 |       headers: this.headers,
+  520 |       data: body,
+  521 |     });
+  522 |     const status = res.status();
+  523 |     const body_ = await res.json().catch(() => null);
+  524 |     return { status, body: body_ };
+  525 |   }
+  526 | }
+```

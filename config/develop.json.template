@@ -1,0 +1,65 @@
+{
+   "organizations-api":{
+      "basicUser":"${secrets.getValue('org.organizations-api-username-develop')}",
+      "basicPassword":"${secrets.getValue('org.organizations-api-password-develop')}",
+      "url":"https://organization-api.develop.squads-dev.com",
+      "token":"${secrets.getValue('org.organizations-api-token-develop')}"
+  },
+  "settings-service":{
+      "basicUser":"${secrets.getValue('org.settings-service-username-develop')}",
+      "basicPassword":"${secrets.getValue('org.settings-service-password-develop')}",
+      "url":"https://settings.develop.squads-dev.com",
+      "token":"${secrets.getValue('org.settings-service-token-develop')}"
+  },
+  "assignment-service":{
+      "basicUser":"${secrets.getValue('org.assignment-service-username-develop')}",
+      "basicPassword":"${secrets.getValue('org.assignment-service-password-develop')}",
+      "url": "https://assignment.develop.squads-dev.com",
+      "token":"${secrets.getValue('org.assignment-service-token-develop')}"
+  },
+  "site-shutdown-v2":{
+      "basicUser":"${secrets.getValue('org.site-shutdown-v2-username-develop')}",
+      "basicPassword":"${secrets.getValue('org.site-shutdown-v2-password-develop')}",
+      "url": "https://site-shutdown-v2.develop.squads-dev.com",
+      "token":"${secrets.getValue('org.site-shutdown-v2-token-develop')}"
+  },
+  "selfRegistration":{
+      "basicUser":"${secrets.getValue('org.self-registration-username-develop')}",
+      "basicPassword":"${secrets.getValue('org.organizations-api-password-develop')}",
+      "url":"https://self-registration.develop.squads-dev.com",
+      "token":"${secrets.getValue('org.self-registration-token-develop')}"
+  },
+
+"provisioning":{
+      "basicUser":"${secrets.getValue('org.provisioning-username-develop')}",
+      "basicPassword":"${secrets.getValue('org.provisioning-password-develop')}",
+      "url":"https://provisioning-service.develop.squads-dev.com",
+      "token":"${secrets.getValue('org.provisioning-auth-token-develop')}",
+      "jwt":"${secrets.getValue('org.provisioning-jwt-develop')}"
+  },
+
+"ucm2bff":{
+      "basicUser":"${secrets.getValue('org.ucm2bff-service-username-develop')}",
+      "basicPassword":"${secrets.getValue('org.ucm2bff-service-password-develop')}",
+      "url":"https://ucm2bff-service.develop.squads-dev.com",
+      "token":"${secrets.getValue('org.ucm2bff-service-auth-token-develop')}",
+      "jwt":"${secrets.getValue('org.ucm2bff-service-jwt-develop')}"
+  },
+    "tailored-content": {
+        "basicUser": "${secrets.getValue("tailored-content-username-develop")}",
+        "basicPassword": "${secrets.getValue("tailored-content-password-develop")}",
+        "url": "https://tailored-content.develop.squads-dev.com",
+        "token": "${secrets.getValue("tailored-content-token-develop")}"
+    },
+    "equivalency-activity": {
+        "basicUser": "${secrets.getValue('equivalency-activity-username-develop')}",
+        "basicPassword": "${secrets.getValue('equivalency-activity-password-develop')}",
+        "url": "https://equivalency-activity.develop.squads-dev.com",
+        "token": "${secrets.getValue('equivalency-activity-token-develop')}"
+    },
+    "frontend": {
+        "basicUser": "adminsw",
+        "basicPassword": "##knock22",
+        "url": "https://plat3-complete.front.develop.squads-dev.com"
+    }
+}

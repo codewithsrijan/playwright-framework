@@ -1,0 +1,226 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: selfRegistration.spec.ts >> SelfRegistration — registration >> FetchRegisteredUsersforapproval — 200  happy path
+- Location: tests/tests-api/selfRegistration.spec.ts:241:7
+
+# Error details
+
+```
+Error: apiRequestContext.post: Fixture { request } from beforeAll cannot be reused in a test.
+  - Recommended fix: use a separate { request } in the test.
+  - Alternatively, manually create APIRequestContext in beforeAll and dispose it in afterAll.
+See https://playwright.dev/docs/api-testing#sending-api-requests-from-ui-tests for more details.
+```
+
+# Test source
+
+```ts
+  57  |     const res = await this.request.post(url, {
+  58  |       headers: this.headers,
+  59  |       data: body,
+  60  |     });
+  61  |     const status = res.status();
+  62  |     if (status >= 200 && status < 300) {
+  63  |       const json = await res.json().catch(() => null);
+  64  |       if (json !== null) {
+  65  |         const parsed = ValidateOtpResponseSchema.safeParse(json);
+  66  |         if (!parsed.success) {
+  67  |           console.warn(`[SelfRegistrationClient] Contract mismatch on POST /api/registrations/{registrationUuid}/otp/{code}/validate:`, parsed.error.format());
+  68  |         }
+  69  |       }
+  70  |     }
+  71  |     const body_ = await res.json().catch(() => null);
+  72  |     return { status, body: body_ };
+  73  |   }
+  74  |   /** SaveUser */
+  75  |   async saveUser(registrationUuid: string, body: Record<string, unknown> = {}, queryParams?: Record<string, string>): Promise<{ status: number; body: unknown }> {
+  76  |     const url = selfRegistrationUrls.postApiRegistrationsByregistrationUuidSaveUserUrl(registrationUuid, this.serviceConfig);
+  77  |     const res = await this.request.post(url, {
+  78  |       headers: this.headers,
+  79  |       data: body,
+  80  |     });
+  81  |     const status = res.status();
+  82  |     if (status >= 200 && status < 300) {
+  83  |       const json = await res.json().catch(() => null);
+  84  |       if (json !== null) {
+  85  |         const parsed = SaveUserResponseSchema.safeParse(json);
+  86  |         if (!parsed.success) {
+  87  |           console.warn(`[SelfRegistrationClient] Contract mismatch on POST /api/registrations/{registrationUuid}/save-user:`, parsed.error.format());
+  88  |         }
+  89  |       }
+  90  |     }
+  91  |     const body_ = await res.json().catch(() => null);
+  92  |     return { status, body: body_ };
+  93  |   }
+  94  |   /** ResendOtp */
+  95  |   async resendOtp(registrationUuid: string, body: Record<string, unknown> = {}, queryParams?: Record<string, string>): Promise<{ status: number; body: unknown }> {
+  96  |     const url = selfRegistrationUrls.postApiRegistrationsByregistrationUuidOtpResendUrl(registrationUuid, this.serviceConfig);
+  97  |     const res = await this.request.post(url, {
+  98  |       headers: this.headers,
+  99  |       data: body,
+  100 |     });
+  101 |     const status = res.status();
+  102 |     if (status >= 200 && status < 300) {
+  103 |       const json = await res.json().catch(() => null);
+  104 |       if (json !== null) {
+  105 |         const parsed = ResendOtpResponseSchema.safeParse(json);
+  106 |         if (!parsed.success) {
+  107 |           console.warn(`[SelfRegistrationClient] Contract mismatch on POST /api/registrations/{registrationUuid}/otp/resend:`, parsed.error.format());
+  108 |         }
+  109 |       }
+  110 |     }
+  111 |     const body_ = await res.json().catch(() => null);
+  112 |     return { status, body: body_ };
+  113 |   }
+  114 |   /** FetchUserStatus */
+  115 |   async fetchUserStatus(registrationUuid: string, queryParams?: Record<string, string>): Promise<{ status: number; body: unknown }> {
+  116 |     const url = selfRegistrationUrls.getApiRegistrationsByregistrationUuidFetchUserStatusUrl(registrationUuid, this.serviceConfig);
+  117 |     const res = await this.request.get(url, {
+  118 |       headers: this.headers,
+  119 |       params: queryParams,
+  120 |     });
+  121 |     const status = res.status();
+  122 |     if (status >= 200 && status < 300) {
+  123 |       const json = await res.json().catch(() => null);
+  124 |       if (json !== null) {
+  125 |         const parsed = FetchUserStatusResponseSchema.safeParse(json);
+  126 |         if (!parsed.success) {
+  127 |           console.warn(`[SelfRegistrationClient] Contract mismatch on GET /api/registrations/{registrationUuid}/fetch-user-status:`, parsed.error.format());
+  128 |         }
+  129 |       }
+  130 |     }
+  131 |     const body_ = await res.json().catch(() => null);
+  132 |     return { status, body: body_ };
+  133 |   }
+  134 |   /** SendOtpEmail */
+  135 |   async sendOtpEmail(registrationUuid: string, body: Record<string, unknown> = {}, queryParams?: Record<string, string>): Promise<{ status: number; body: unknown }> {
+  136 |     const url = selfRegistrationUrls.postApiRegistrationsByregistrationUuidSendOtpEmailUrl(registrationUuid, this.serviceConfig);
+  137 |     const res = await this.request.post(url, {
+  138 |       headers: this.headers,
+  139 |       data: body,
+  140 |     });
+  141 |     const status = res.status();
+  142 |     if (status >= 200 && status < 300) {
+  143 |       const json = await res.json().catch(() => null);
+  144 |       if (json !== null) {
+  145 |         const parsed = SendOtpEmailResponseSchema.safeParse(json);
+  146 |         if (!parsed.success) {
+  147 |           console.warn(`[SelfRegistrationClient] Contract mismatch on POST /api/registrations/{registrationUuid}/send-otp-email:`, parsed.error.format());
+  148 |         }
+  149 |       }
+  150 |     }
+  151 |     const body_ = await res.json().catch(() => null);
+  152 |     return { status, body: body_ };
+  153 |   }
+  154 |   /** FetchRegisteredUsersforapproval */
+  155 |   async fetchRegisteredUsersforapproval(body: Record<string, unknown> = {}, queryParams?: Record<string, string>): Promise<{ status: number; body: unknown }> {
+  156 |     const url = selfRegistrationUrls.postApiRegistrationsFetchRegisteredUsersForApprovalUrl(this.serviceConfig);
+> 157 |     const res = await this.request.post(url, {
+      |                                    ^ Error: apiRequestContext.post: Fixture { request } from beforeAll cannot be reused in a test.
+  158 |       headers: this.headers,
+  159 |       data: body,
+  160 |     });
+  161 |     const status = res.status();
+  162 |     if (status >= 200 && status < 300) {
+  163 |       const json = await res.json().catch(() => null);
+  164 |       if (json !== null) {
+  165 |         const parsed = FetchRegisteredUsersforapprovalResponseSchema.safeParse(json);
+  166 |         if (!parsed.success) {
+  167 |           console.warn(`[SelfRegistrationClient] Contract mismatch on POST /api/registrations/fetch-registered-users-for-approval:`, parsed.error.format());
+  168 |         }
+  169 |       }
+  170 |     }
+  171 |     const body_ = await res.json().catch(() => null);
+  172 |     return { status, body: body_ };
+  173 |   }
+  174 |   /** ApprovePendingRegisteredUsers */
+  175 |   async approvePendingRegisteredUsers(body: Record<string, unknown> = {}, queryParams?: Record<string, string>): Promise<{ status: number; body: unknown }> {
+  176 |     const url = selfRegistrationUrls.putApiRegistrationsApprovePendingRegisteredUsersUrl(this.serviceConfig);
+  177 |     const res = await this.request.put(url, {
+  178 |       headers: this.headers,
+  179 |       data: body,
+  180 |     });
+  181 |     const status = res.status();
+  182 |     if (status >= 200 && status < 300) {
+  183 |       const json = await res.json().catch(() => null);
+  184 |       if (json !== null) {
+  185 |         const parsed = ApprovePendingRegisteredUsersResponseSchema.safeParse(json);
+  186 |         if (!parsed.success) {
+  187 |           console.warn(`[SelfRegistrationClient] Contract mismatch on PUT /api/registrations/approve-pending-registered-users:`, parsed.error.format());
+  188 |         }
+  189 |       }
+  190 |     }
+  191 |     const body_ = await res.json().catch(() => null);
+  192 |     return { status, body: body_ };
+  193 |   }
+  194 |   /** ApproveRegisteredUserWithUpdateRequest */
+  195 |   async approveRegisteredUserWithUpdateRequest(body: Record<string, unknown> = {}, queryParams?: Record<string, string>): Promise<{ status: number; body: unknown }> {
+  196 |     const url = selfRegistrationUrls.putApiRegistrationsApproveRegisteredUserWithUpdateUrl(this.serviceConfig);
+  197 |     const res = await this.request.put(url, {
+  198 |       headers: this.headers,
+  199 |       data: body,
+  200 |     });
+  201 |     const status = res.status();
+  202 |     if (status >= 200 && status < 300) {
+  203 |       const json = await res.json().catch(() => null);
+  204 |       if (json !== null) {
+  205 |         const parsed = ApproveRegisteredUserWithUpdateRequestResponseSchema.safeParse(json);
+  206 |         if (!parsed.success) {
+  207 |           console.warn(`[SelfRegistrationClient] Contract mismatch on PUT /api/registrations/approve-registered-user-with-update:`, parsed.error.format());
+  208 |         }
+  209 |       }
+  210 |     }
+  211 |     const body_ = await res.json().catch(() => null);
+  212 |     return { status, body: body_ };
+  213 |   }
+  214 |   /** RejectUserRegistration */
+  215 |   async rejectUserRegistration(body: Record<string, unknown> = {}, queryParams?: Record<string, string>): Promise<{ status: number; body: unknown }> {
+  216 |     const url = selfRegistrationUrls.putApiRegistrationsRejectPendingRegistrationUsersUrl(this.serviceConfig);
+  217 |     const res = await this.request.put(url, {
+  218 |       headers: this.headers,
+  219 |       data: body,
+  220 |     });
+  221 |     const status = res.status();
+  222 |     if (status >= 200 && status < 300) {
+  223 |       const json = await res.json().catch(() => null);
+  224 |       if (json !== null) {
+  225 |         const parsed = RejectUserRegistrationResponseSchema.safeParse(json);
+  226 |         if (!parsed.success) {
+  227 |           console.warn(`[SelfRegistrationClient] Contract mismatch on PUT /api/registrations/reject-pending-registration-users:`, parsed.error.format());
+  228 |         }
+  229 |       }
+  230 |     }
+  231 |     const body_ = await res.json().catch(() => null);
+  232 |     return { status, body: body_ };
+  233 |   }
+  234 |   /** BulkUpdateCustomAttributeValues */
+  235 |   async bulkUpdateCustomAttributeValues(body: Record<string, unknown> = {}, queryParams?: Record<string, string>): Promise<{ status: number; body: unknown }> {
+  236 |     const url = selfRegistrationUrls.putApiRegistrationsBulkUpdateCustomAttributeValuesUrl(this.serviceConfig);
+  237 |     const res = await this.request.put(url, {
+  238 |       headers: this.headers,
+  239 |       data: body,
+  240 |     });
+  241 |     const status = res.status();
+  242 |     if (status >= 200 && status < 300) {
+  243 |       const json = await res.json().catch(() => null);
+  244 |       if (json !== null) {
+  245 |         const parsed = BulkUpdateCustomAttributeValuesResponseSchema.safeParse(json);
+  246 |         if (!parsed.success) {
+  247 |           console.warn(`[SelfRegistrationClient] Contract mismatch on PUT /api/registrations/bulk-update-custom-attribute-values:`, parsed.error.format());
+  248 |         }
+  249 |       }
+  250 |     }
+  251 |     const body_ = await res.json().catch(() => null);
+  252 |     return { status, body: body_ };
+  253 |   }
+  254 |   /** ShutdownSelfRegistration */
+  255 |   async shutdownSelfRegistration(body: Record<string, unknown> = {}, queryParams?: Record<string, string>): Promise<{ status: number; body: unknown }> {
+  256 |     const url = selfRegistrationUrls.postApiV2SiteShutdownSyncShutdownUrl(this.serviceConfig);
+  257 |     const res = await this.request.post(url, {
+```

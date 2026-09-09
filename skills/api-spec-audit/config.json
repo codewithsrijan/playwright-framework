@@ -1,0 +1,10 @@
+{
+  "_comment": "Configuration for the api-spec-audit skill. Adjust gap detection thresholds and output preferences.",
+  "outputPlanFile": true,
+  "planOutputDir": "tests/tests-api",
+  "flowDetectionKeywords": ["otp", "verify", "validate", "confirm", "activate", "magic", "resend"],
+  "foreignKeyPatterns": ["Id$", "Uuid$", "UUID$", "Key$", "Ref$"],
+  "orgParamNames": ["organizationId", "orgId", "organizationUuid", "orgUuid"],
+  "autoSkipPatterns": ["/actuator/*", "/health", "/metrics/*", "/internal/*"],
+  "handoffSkill": "swagger-api-gen"
+}

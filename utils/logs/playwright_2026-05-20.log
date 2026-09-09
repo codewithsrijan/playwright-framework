@@ -1,0 +1,5 @@
+info: Org_Url: https://SiteShudownTest663.front.develop.squads-dev.com {"timestamp":"2026-05-20 23:04:42"}
+info: Update org details failed with status: 409 {"timestamp":"2026-05-20 23:04:45"}
+info: Response text: {"message":"Data_already_exists","errors":[{"code":"data_already_exists","message":"Data already exists"}]} {"timestamp":"2026-05-20 23:04:45"}
+info: Organization already exists in site shutdown service - continuing with test : Organization ID - 2bd47d93-9f2e-4e13-95ac-20cf1b87d13b and Domain - SiteShudownTest663 {"timestamp":"2026-05-20 23:04:45"}
+info: 2bd47d93-9f2e-4e13-95ac-20cf1b87d13b {"timestamp":"2026-05-20 23:04:45"}

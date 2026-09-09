@@ -1,0 +1,12 @@
+[LOG] Build Info
+Commit: 902b0c36f01e53c36c94997b9781d796ed33faf0
+Date/time: 5/26/2026 2:25:39 AM
+[Mon, 25 May 2026 20:55:39 GMT]
+[LOG] Home Page is using cached data: true
+[ERROR] Applying inline style violates the following Content Security Policy directive 'style-src 'self' *.percipio.com cdn1-percipio-qa.global.ssl.fastly.net cdn2-percipio-qa.global.ssl.fastly.net cdn3-percipio-qa.global.ssl.fastly.net skillsoft.d2cdn.net cdn2-percipio-qastage.global.ssl.fastly.net cdn1-percipio-qastage.global.ssl.fastly.net www.recaptcha.net recaptcha.net www.gstatic.com www.google.com cdn.tiny.cloud skillsoft--ravidev.sandbox.my.site.com 'nonce-d65dd37e391277a283be38771a2a2415''. Either the 'unsafe-inline' keyword, a hash ('sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU='), or a nonce ('nonce-...') is required to enable inline execution. The action has been blocked.
+[ERROR] Applying inline style violates the following Content Security Policy directive 'style-src 'self' *.percipio.com cdn1-percipio-qa.global.ssl.fastly.net cdn2-percipio-qa.global.ssl.fastly.net cdn3-percipio-qa.global.ssl.fastly.net skillsoft.d2cdn.net cdn2-percipio-qastage.global.ssl.fastly.net cdn1-percipio-qastage.global.ssl.fastly.net www.recaptcha.net recaptcha.net www.gstatic.com www.google.com cdn.tiny.cloud skillsoft--ravidev.sandbox.my.site.com 'nonce-d65dd37e391277a283be38771a2a2415''. Either the 'unsafe-inline' keyword, a hash ('sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU='), or a nonce ('nonce-...') is required to enable inline execution. The action has been blocked.
+[LOG] %cLoading JS bundles from pipeline environment develop
+Bundle location: https://cdn3-percipio-qa.global.ssl.fastly.net/ff/develop/appCore/ color: #7cc583; font-weight: bold
+[LOG] [AICC-Redirect-Info] {hasPercipioLanding: false, pathMatchesLanding: false, skipRedirectForAiccLocaleChange: false, wouldRedirect: false}
+[WARNING] AG Grid: error #48 Visit https://www.ag-grid.com/react-data-grid/errors/48?_version_=33.2.4&property=Formatter 
+  Alternatively register the ValidationModule to see the full message in the console.

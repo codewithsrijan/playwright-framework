@@ -1,0 +1,48 @@
+{
+  "name": "ucm-playwright-automation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "OrgCreation": "NODE_ENV=develop npx playwright test --grep @createOrganization -c playwright.api.config.ts --reporter=list --workers 1",
+    "DataSeed": "NODE_ENV=stage  npx playwright test 'siteShutDownDataSeed.spec.js' -c 'playwright.api.config.ts' --reporter=list --workers 1 ",
+    "jenkins-config-template": "npx psl render config/$NODE_ENV.json.template --fromrole true > config/$NODE_ENV.json",
+    "load-secrets-dev": "npx psl render config/develop.json.template --profile develop > config/develop.json",
+    "load-secrets-stg": "npx psl render config/stage.json.template --profile stage > config/stage.json",
+    "fetch-pr-context": "node scripts/fetch-pr-context.mjs",
+    "qmetry:import-test-case": "tsx qmetry-utility/qmetryTestCaseImport.ts",
+    "qmetry:js": "node --experimental-default-type=module qmetry-utility/qmetry.js",
+    "qmetry:issue": "node scripts/qmetry-run-issue.mjs",
+    "test:ui": "NODE_ENV=develop npx playwright test -c playwright.config.ts",
+    "report:allure": "npm run allure:generate && npm run allure:open",
+    "allure:clean-results": "rm -rf allure-results",
+    "allure:generate": "allure generate allure-results --clean -o allure-report",
+    "allure:open": "allure open allure-report",
+    "gen:api": "node scripts/swagger-fetch.mjs $npm_config_url --basic-token $npm_config_basic_token --token $npm_config_token | node scripts/swagger-api-gen.mjs --spec /dev/stdin --service $npm_config_service --include \"$npm_config_include\" --out .",
+    "gen:api:dry": "node scripts/swagger-fetch.mjs $npm_config_url --basic-token $npm_config_basic_token --token $npm_config_token | node scripts/swagger-api-gen.mjs --spec /dev/stdin --service $npm_config_service --include \"$npm_config_include\" --out . --dry-run",
+    "skill:pack": "cp skills/swagger-api-gen/SKILL.md .claude/skills/swagger-api-gen/SKILL.md; rm -rf /tmp/_skill_pack && mkdir /tmp/_skill_pack && cp skills/swagger-api-gen/SKILL.md skills/swagger-api-gen/config.json /tmp/_skill_pack/ && cd /tmp/_skill_pack && zip -j swagger-api-gen.skill SKILL.md config.json && cp swagger-api-gen.skill $OLDPWD/swagger-api-gen.skill && echo 'Packaged → swagger-api-gen.skill'",
+    "skill:pack:audit": "rm -rf /tmp/_skill_pack_audit && mkdir /tmp/_skill_pack_audit && cp skills/api-spec-audit/SKILL.md skills/api-spec-audit/config.json /tmp/_skill_pack_audit/ && cd /tmp/_skill_pack_audit && zip -j api-spec-audit.skill SKILL.md config.json && cp api-spec-audit.skill $OLDPWD/api-spec-audit.skill && echo 'Packaged → api-spec-audit.skill'",
+    "skill:pack:all": "npm run skill:pack && npm run skill:pack:audit && echo 'Done — drag both .skill files into Cowork and click Save skill on each.'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/mcp": "^0.0.71",
+    "@playwright/test": "^1.60.0",
+    "@skillsoft-security-chapter/percipiosecretloader": "^3.1.3",
+    "@types/node": "^22.15.0",
+    "allure-commandline": "^2.38.1",
+    "allure-playwright": "^3.7.1",
+    "tsx": "^4.19.3",
+    "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "axios": "1.13.6",
+    "dotenv": "^16.4.1",
+    "uuid": "^11.1.1",
+    "winston": "^3.13.0",
+    "zod": "^4.4.3"
+  }
+}

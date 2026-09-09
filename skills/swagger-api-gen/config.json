@@ -1,0 +1,23 @@
+{
+  "_comment_skip": "skipEndpoints: exclude these from generation. Supports exact path (/health), glob (/internal/*), method+path (POST /admin/purge). Ignored when includeEndpoints is set.",
+  "skipEndpoints": [
+    "/actuator/*",
+    "/actuator",
+    "/health",
+    "/health/*",
+    "/metrics",
+    "/metrics/*",
+    "/internal/*",
+    "GET /debug/*",
+    "GET /swagger-ui*",
+    "GET /v3/api-docs*",
+    "GET /v2/api-docs*",
+    "POST /api/v2/site-shutdown/sync/shutdown",
+    "POST /api/audit-mesgs/ack/*"
+  ],
+  "_comment_include": "includeEndpoints: when non-empty, ONLY these endpoints are generated and skipEndpoints is ignored. Same pattern syntax as skipEndpoints.",
+  "includeEndpoints": [],
+  "outputDir": "tests/tests-api",
+  "defaultTimeout": 10000,
+  "tagGrouping": true
+}

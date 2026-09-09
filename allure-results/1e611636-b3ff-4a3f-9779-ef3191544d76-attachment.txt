@@ -1,0 +1,54 @@
+error: Unable to generate admin token. Retrying... (Retry 1 of 10) {"timestamp":"2026-05-27 14:58:48"}
+error: expect(received).toBe(expected) // Object.is equality
+
+Expected: 200
+Received: 404 {"matcherResult":{"actual":404,"expected":200,"message":"\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m404\u001b[39m","name":"toBe","pass":false},"timestamp":"2026-05-27 14:58:48"}
+error: Unable to generate admin token. Retrying... (Retry 2 of 10) {"timestamp":"2026-05-27 14:58:49"}
+error: expect(received).toBe(expected) // Object.is equality
+
+Expected: 200
+Received: 404 {"matcherResult":{"actual":404,"expected":200,"message":"\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m404\u001b[39m","name":"toBe","pass":false},"timestamp":"2026-05-27 14:58:49"}
+error: Unable to generate admin token. Retrying... (Retry 3 of 10) {"timestamp":"2026-05-27 14:58:49"}
+error: expect(received).toBe(expected) // Object.is equality
+
+Expected: 200
+Received: 404 {"matcherResult":{"actual":404,"expected":200,"message":"\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m404\u001b[39m","name":"toBe","pass":false},"timestamp":"2026-05-27 14:58:49"}
+error: Unable to generate admin token. Retrying... (Retry 4 of 10) {"timestamp":"2026-05-27 14:58:49"}
+error: expect(received).toBe(expected) // Object.is equality
+
+Expected: 200
+Received: 404 {"matcherResult":{"actual":404,"expected":200,"message":"\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m404\u001b[39m","name":"toBe","pass":false},"timestamp":"2026-05-27 14:58:49"}
+error: Unable to generate admin token. Retrying... (Retry 5 of 10) {"timestamp":"2026-05-27 14:58:49"}
+error: expect(received).toBe(expected) // Object.is equality
+
+Expected: 200
+Received: 404 {"matcherResult":{"actual":404,"expected":200,"message":"\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m404\u001b[39m","name":"toBe","pass":false},"timestamp":"2026-05-27 14:58:49"}
+error: Unable to generate admin token. Retrying... (Retry 6 of 10) {"timestamp":"2026-05-27 14:58:50"}
+error: expect(received).toBe(expected) // Object.is equality
+
+Expected: 200
+Received: 404 {"matcherResult":{"actual":404,"expected":200,"message":"\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m404\u001b[39m","name":"toBe","pass":false},"timestamp":"2026-05-27 14:58:50"}
+error: Unable to generate admin token. Retrying... (Retry 7 of 10) {"timestamp":"2026-05-27 14:58:50"}
+error: expect(received).toBe(expected) // Object.is equality
+
+Expected: 200
+Received: 404 {"matcherResult":{"actual":404,"expected":200,"message":"\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m404\u001b[39m","name":"toBe","pass":false},"timestamp":"2026-05-27 14:58:50"}
+error: Unable to generate admin token. Retrying... (Retry 8 of 10) {"timestamp":"2026-05-27 14:58:50"}
+error: expect(received).toBe(expected) // Object.is equality
+
+Expected: 200
+Received: 404 {"matcherResult":{"actual":404,"expected":200,"message":"\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m404\u001b[39m","name":"toBe","pass":false},"timestamp":"2026-05-27 14:58:50"}
+error: Unable to generate admin token. Retrying... (Retry 9 of 10) {"timestamp":"2026-05-27 14:58:51"}
+error: expect(received).toBe(expected) // Object.is equality
+
+Expected: 200
+Received: 404 {"matcherResult":{"actual":404,"expected":200,"message":"\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m404\u001b[39m","name":"toBe","pass":false},"timestamp":"2026-05-27 14:58:51"}
+error: Unable to generate admin token. Retrying... (Retry 10 of 10) {"timestamp":"2026-05-27 14:58:51"}
+error: expect(received).toBe(expected) // Object.is equality
+
+Expected: 200
+Received: 404 {"matcherResult":{"actual":404,"expected":200,"message":"\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m404\u001b[39m","name":"toBe","pass":false},"timestamp":"2026-05-27 14:58:51"}
+error: Retry limit exceeded (10 attempts). Unable to generate admin token. Error: Error: expect(received).toBe(expected) // Object.is equality
+
+Expected: 200
+Received: 404 {"timestamp":"2026-05-27 14:58:51"}
